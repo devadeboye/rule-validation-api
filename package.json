@@ -1,0 +1,32 @@
+{
+  "name": "rule-validation-api",
+  "version": "1.0.0",
+  "description": "an API which validate data with a given set or rules",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --timeout 15000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devadeboye/rule-validation-api.git"
+  },
+  "keywords": [
+    "validation",
+    "rule",
+    "fields"
+  ],
+  "author": "Adeboye Emmanuel (@devadeboye)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devadeboye/rule-validation-api/issues"
+  },
+  "homepage": "https://github.com/devadeboye/rule-validation-api#readme",
+  "dependencies": {
+    "aws-serverless-express": "^3.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13",
+    "validatorjs": "^3.22.1"
+  }
+}
