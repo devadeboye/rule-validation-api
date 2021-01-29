@@ -1,12 +1,6 @@
 const router = require('express')();
-const homeController = require("../controllers/home");
-const validatorController = require("../controllers/validator");
+const v1Routes = require('./v1/v1Routes')
 
-router.get("/", homeController.getProfileDetails);
-
-router.post(
-    "/validate-rule",
-    validatorController.validate
-);
+router.use('/', v1Routes);
 
 module.exports = router;
