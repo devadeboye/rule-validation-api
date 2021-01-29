@@ -1,4 +1,4 @@
-const { isObject, isArray, isString } = require("../helpers/helperFunctions");
+const { isNumber, isString, isInvalidFieldType } = require("../helpers/helperFunctions");
 
 module.exports = class ValidatorAPI {
     static validate (req, res) {
@@ -56,12 +56,7 @@ module.exports = class ValidatorAPI {
 
         const data = req.body.data;
         const rule = req.body.rule;
-
-        const isInvalidFieldType = (obj) => {            
-            if (isObject(obj) === false && isArray(obj) ===false && isString(obj) === false){
-                return true;
-            }
-        }
+        const requiredFieldNotInData = Object.keys(data).includes(rule.field)
         const isInvalidDataField = isInvalidFieldType(data);
         const isInvalidRuleField = isInvalidFieldType(rule);
 
@@ -81,7 +76,7 @@ module.exports = class ValidatorAPI {
             })
         }
 
-        if (!data[rule.field]) {
+        if (!requiredFieldNotInData) {
             return res.status(400).json({
                 message: `field ${rule.field} is missing from data.`,
                 status: "error",
@@ -137,8 +132,12 @@ module.exports = class ValidatorAPI {
             const conditionValue = rule.condition_value;
             const dataFieldValue = data[rule.field];
             const conditionValueIsString = isString(conditionValue);
-            // TODO: return error for number type
+            const conditionValueIsNumber = isNumber(conditionValue);
 
+            if (conditionValueIsNumber) {
+                return sendErrorMessage(rule, data);
+            }
+            
             if (conditionValueIsString) {
                 if (conditionValue.includes(dataFieldValue)) {
                     return sendSuccessMessage(rule, data);
