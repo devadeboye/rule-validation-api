@@ -7,6 +7,7 @@ to validate the data field.
 
 The field to be validate should be specified in the data section of the payload
 as follows:
+
     {
         "rule": {
             "field":"missions",
