@@ -13,6 +13,6 @@ app.use(awsServerlessExpressMiddleware.eventContext());
 
 const routes = require('./src/routes/index');
 
-app.use('/api', routes);
+app.use('/', routes);
 
 module.exports = app;

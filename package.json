@@ -2,9 +2,11 @@
   "name": "rule-validation-api",
   "version": "1.0.0",
   "description": "an API which validate data with a given set or rules",
-  "main": "app.js",
+  "main": "lambda.js",
   "scripts": {
-    "test": "mocha --timeout 15000"
+    "test": "mocha --timeout 15000",
+    "dev": "nodemon lambda",
+    "start": "node lambda"
   },
   "repository": {
     "type": "git",
@@ -12,8 +14,8 @@
   },
   "keywords": [
     "validation",
-    "rule",
-    "fields"
+    "validator",
+    "sanitize"
   ],
   "author": "Adeboye Emmanuel (@devadeboye)",
   "license": "ISC",
@@ -23,10 +25,17 @@
   "homepage": "https://github.com/devadeboye/rule-validation-api#readme",
   "dependencies": {
     "aws-serverless-express": "^3.4.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-validator": "^6.9.2",
+    "mocha": "^8.2.1",
     "mongoose": "^5.11.13",
-    "validatorjs": "^3.22.1"
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
