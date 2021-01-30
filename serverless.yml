@@ -24,7 +24,7 @@ functions:
     #   minify : false
     events : 
       - http:
-          path: /{proxy+}
+          path: /
           method: any
           cors: true
           private: false

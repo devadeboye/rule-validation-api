@@ -18,7 +18,7 @@ const gte0 = {
         "age":33,
         "position":"captain",
         "missions":45
-    },
+    }
 };
 
 const gte1 = {
@@ -30,11 +30,11 @@ const gte1 = {
     "data": 20,
 };
 
-const gte2 = {
+const gte2 = { 
     "ball": {
         "field":"missions",
         "condition":"gte",
-        "condition_value":30,
+        "condition_value":30
     },
     "eye": {
         "name":"John Doe",
@@ -42,7 +42,7 @@ const gte2 = {
         "age":33,
         "position":"captain",
         "missions":45
-    },
+    }
 };
 
 const gte3 = {
@@ -53,7 +53,7 @@ const gte3 = {
         "age":33,
         "position":"captain",
         "missions":45
-    },
+    }
 };
 
 const gte4 = {
@@ -68,7 +68,7 @@ const gte4 = {
         "age":33,
         "position":"captain",
         "missions":20
-    },
+    }
 };
 
 const gte5 = {
@@ -83,7 +83,7 @@ const gte5 = {
         "age":33,
         "position":"captain",
         "missions":30
-    },
+    }
 };
 
 const eq0 = {
@@ -98,7 +98,7 @@ const eq0 = {
         "age":33,
         "position":"captain",
         "missions":30
-    },
+    }
 };
 
 const eq1 = {
@@ -113,7 +113,7 @@ const eq1 = {
         "age":33,
         "position":"captain",
         "missions":"30"
-    },
+    }
 };
 
 const eq2 = {
@@ -128,14 +128,14 @@ const eq2 = {
         "age":33,
         "position":"captain",
         "missions":31
-    },
+    }
 };
 
 const neq0 = {
     "rule": {
         "field":"missions",
         "condition":"neq",
-        "condition_value":30,
+        "condition_value":30
     },
     "data": {
         "name":"John Doe",
@@ -143,7 +143,7 @@ const neq0 = {
         "age":33,
         "position":"captain",
         "missions":30
-    },
+    }
 };
 
 
