@@ -17,7 +17,7 @@ provider:
     name : serverless-user #create a bucket and add the name here
   deploymentPrefix: testing
 functions:
-  create-payment-tenant-app:
+  rule-validation-api:
     handler: lambda.handler
     name: rule-validation-api
     # optimize:
