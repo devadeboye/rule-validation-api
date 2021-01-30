@@ -1,7 +1,22 @@
+const { json } = require("express");
 const { isNumber, isString, isInvalidFieldType } = require("../helpers/helperFunctions");
 
 module.exports = class ValidatorAPI {
     static validate (req, res) {
+        let incomingPayload, incomingPayloadJson, data, rule;
+        
+        try {
+            incomingPayload = JSON.stringify(req.body);
+            incomingPayloadJson = JSON.parse(incomingPayload);
+            data = incomingPayloadJson.data;
+            rule = incomingPayloadJson.rule;
+        } catch (err) {
+            return res.status(400).json({
+                "message": "Invalid JSON payload passed.",
+                "status": "error",
+                "data": null
+            });
+        }
 
         const sendErrorMessage = (rule, data) => {
             res.status(400).json({
@@ -39,14 +54,14 @@ module.exports = class ValidatorAPI {
             })
         }
 
-        if (req.body.rule === undefined) {
+        if (!rule) { // req.body.rule === undefined) {
             return res.status(400).json({
                 message: "rule field is required.",
                 status: "error",
                 data: null
             })
         }
-        if (req.body.data === undefined) {
+        if (!data) { // req.body.data === undefined) {
             return res.status(400).json({
                 message: "data field is required.",
                 status: "error",
@@ -54,8 +69,8 @@ module.exports = class ValidatorAPI {
             })
         }
 
-        const data = req.body.data;
-        const rule = req.body.rule;
+        // const data = req.body.data;
+        // const rule = req.body.rule;
         const requiredFieldNotInData = Object.keys(data).includes(rule.field)
         const isInvalidDataField = isInvalidFieldType(data);
         const isInvalidRuleField = isInvalidFieldType(rule);
