@@ -48,7 +48,7 @@ module.exports = class ValidatorAPI {
 
         const notExpectedTypeErrorMessage = (rule) => {
             res.status(400).json({
-                message: `value of field ${rule.field} in data is not of expected type.`,
+                message: `value of field ${rule.field} should be of type ${typeof(rule.condition_value)}.`,
                 status: "error",
                 data: null
             })
